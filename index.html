@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="1.js" defer></script>
+  <script type="module" src="2.js" defer></script>
+  <script type="module" src="3.js" defer></script>
+  <script type="module" src="4.js" defer></script>
+  <script type="module" src="5.js" defer></script>
+  <script type="module" src="6.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="public/img/favicon.webp" type="image/x-icon">
+  
+  <style>
+  /* hide scrollbar */
+  #slider::-webkit-scrollbar {
+    display: none;
+  }
+
+   .slider-img { 
+    /* width: px; */
+    /* height: 300px; */
+    /* object-fit: cover; */
+    border-radius: 16px;
+    flex-shrink: 0;
+    user-select: none;
+    pointer-events: none; 
+  }
+</style>
+
+<title>Ronin - Smart Wearable & Tech Accessories Brand</title>
+</head>
+
+<body class="bg-white overflow-x-hidden box-border ">
+  <div class="container box-border w-full max-w-full overflow-x-hidden left-0 right-0 mx-auto ">
+    <div class="z-10 absolute h-14 w-full justify-end pr-20 xs:hidden dl:flex bg-gradient-to-b from-black/80">
+      <div class="NavbarText mt- w-2/4 flex justify-between p-3 px-8 font-bold font-inter text-xs text-white ">
+        <p1 class="transition-all duration-300 ease-in-out hover:underline h-6 cursor-pointer p-1">
+          Product Customization</p1>
+        <p2 class="transition-all duration-300 ease-in-out hover:underline h-6 cursor-pointer p-1">
+          Gift Store</p2>
+        <p3 class="transition-all duration-300 ease-in-out hover:underline h-6 cursor-pointer p-1">
+          Express Delivery</p3>
+        <p4 class="transition-all duration-300 ease-in-out hover:underline h-6 cursor-pointer p-1">
+          Corporate Orders</p4>
+        <p5 class="transition-all duration-300 ease-in-out hover:underline h-6 cursor-pointer p-1">
+          Track orders</p5>
+        <p6 class="transition-all duration-300 ease-in-out hover:underline h-6 cursor-pointer p-1">
+          Contact Us</p6>
+      </div>
+    </div>
+  
+    <!-- Small Dot (Follows the circle) -->
+<div id="cursor-dot" class="fixed top-0 left-0 w-2 h-2 bg-black rounded-full pointer-events-none z-[10000]"></div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/1234567890?text=Hi!%20I%20have%20a%20question%20about%20your%20products." 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center  hover:scale-110 transition-transform duration-300 ease-in-out group">
+  
+  <!-- WhatsApp SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+  </svg>
+
+  <!-- Optional Tooltip -->
+  <span class="absolute right-16 bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+    Chat with us
+  </span>
+</a>
+
+<!-- Outer Circle (Follows the cursor) -->
+<div id="cursor-circle" class="fixed top-0 left-0 w-12 h-12 border border-[#2c231e] rounded-full pointer-events-none z-[9999] opacity-70"></div>
+
+        <!-- Added id="navbar" and transition classes -->
+    <div id="navbar" class="z-50 fixed md:mt-10 dl:mt-12 bg-white flex justify-between sm:w-[95vw] md:w-[93vw] justify-self-center px-16 xs:h-12 md:h-7 dl:h-10 rounded-2xl shadow shadow-black/40 xs:mt-4 xs:px-3 xs:w-[85vw] dl:w-[97vw] transition-all duration-500 ease-in-out transform ">
+      <div class="self-center md:w-36 flex justify-center 2xl:w-60">
+        <img class="h-8 w-36 rounded-xl xs:w-14 xs:h-4 dl:w-28 dl:h-8" src="public/img/ronin logo.png" alt="" />
+      </div>
+      <div class="flex dl:w-[72vw] justify-between 2xl:w-[65vw] 3xl:w-[38vw]">
+      <div class="w-3/4 justify-between text-blue-800 font-semibold xs:hidden dl:flex dl:w-[58vw] dl:text-sm 2xl:w-[52vw] 3xl:w-[30vw]">
+        <p1 class="font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent self-center">Software Based Headphones</p1>
+        <p1 id="Audio" class="transition-all duration-300 ease-in-out cursor-pointer self-center p-1 rounded-xl hover:shadow hover:shadow-black">Audio & Buds</p1>
+        <p2 id="SmartWatches" class="transition-all duration-300 ease-in-out cursor-pointer self-center p-1 rounded-xl hover:shadow hover:shadow-black">Smart watches</p2>
+        <p3 id="ChargingDevices" class="transition-all duration-300 ease-in-out cursor-pointer self-center p-1 rounded-xl hover:shadow hover:shadow-black">Charging Devices</p3>
+        <p4 id="Accessories" class="transition-all duration-300 ease-in-out cursor-pointer self-center p-1 rounded-xl hover:shadow hover:shadow-black">Accessories
+        </p4>
+        <p5 class="transition-all duration-300 ease-in-out cursor-pointer self-center p-1 rounded-xl hover:shadow hover:shadow-black">Shop All</p5>
+        </div>
+        <div class="xs:flex xs:justify-between xs:w-28 xs:h-12 md:h-7 self-center dl:mr-12">
+          <img class="transition-all duration-300 ease-in-out cursor-pointer w-8 h-8 self-center p-1 rounded-xl hover:shadow hover:shadow-black" src="public/img/search.png" alt="" />
+          <img class="transition-all duration-300 ease-in-out cursor-pointer w-8 h-8 self-center xs:hidden dl:block p-1 rounded-xl hover:shadow hover:shadow-black" src="public/img/person.png" alt="" />
+          <img class="transition-all duration-300 ease-in-out cursor-pointer md:w-7 md:h-7 self-center xs:w-5 xs:h-5 md:p-1 rounded-lg hover:shadow hover:shadow-black" src="public/img/shopping-cart.png" alt="" />
+          <div class="flex dl:hidden">
+            <img class="h-6 w-6 self-center cursor-pointer " src="public/img/menu.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ================= AUDIO SECTION ================= -->
+<div id="AudioSection"  class="navbarThings hidden opacity-0 pointer-events-none dl:block transition-all duration-500 ease-in-out absolute mt-20 z-50 h-fit w-11/12 left-16 py-12 rounded-3xl bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg">
+  <div class="flex gap-x-16">
+    <!-- Menu Tabs -->
+    <div class="flex flex-col gap-3 py-6 w-fit">
+      <button id="Earbuds" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Earbuds</button>
+      <button id="Handsfree" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">HandsFree</button>
+      <button id="Neckbands" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Neckbands</button>
+      <button id="Speakers" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Speakers</button>
+      <button id="Headphones" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Headphones</button>
+    </div>
+    
+    <!-- Tab Contents -->
+    <div class="border-l-2">
+      <!-- Active by default -->
+      <div id="itemsPerOption1" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-100 h-full"></div>
+      
+      <!-- Hidden by default -->
+      <div id="itemsPerOption2" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+      <div id="itemsPerOption3" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+      <div id="itemsPerOption4" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+      <div id="itemsPerOption5" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= WATCHES SECTION ================= -->
+<div id="WatchesSection" class="navbarThings hidden opacity-0 pointer-events-none dl:block transition-all duration-500 ease-in-out absolute mt-20 z-50 h-[60vh] w-11/12 left-16 py-12 rounded-3xl bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg">
+  <div class="flex gap-x-16">
+    <!-- Menu Tabs -->
+    <div class="flex flex-col gap-3 py-6 w-fit">
+      <button id="Men" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Men</button>
+      <button id="Women" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Women</button>
+    </div>
+    
+    <!-- Tab Contents -->
+    <div class="border-l-2">
+      <!-- Active by default -->
+      <div id="itemsPerOption6" class="w-full gap-x-10 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-100 h-full"></div>
+      
+      <!-- Hidden by default -->
+      <div id="itemsPerOption7" class="w-full gap-x-10 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CHARGING SECTION ================= -->
+<div id="ChargingSection" class="navbarThings hidden opacity-0 pointer-events-none dl:block transition-all duration-500 ease-in-out absolute mt-20 z-50 h-fit w-11/12 left-16 py-12 rounded-3xl bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg">
+  <div class="flex gap-x-16">
+    <!-- Menu Tabs -->
+    <div class="flex flex-col gap-3 py-6 w-fit">
+      <button id="Cables" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Cables</button>
+      <button id="PowerBank" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Power Banks</button>
+      <button id="MobileCharges" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Mobile Chargers</button>
+    </div>
+    
+    <!-- Tab Contents -->
+    <div class="border-l-2">
+      <!-- Active by default -->
+      <div id="itemsPerOption8" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-100 h-full"></div>
+      
+      <!-- Hidden by default -->
+      <div id="itemsPerOption9" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+      <div id="itemsPerOption10" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================= Accessories SECTION ================= -->
+<div id="AccessoriesSection" class="navbarThings hidden opacity-0 pointer-events-none dl:block transition-all duration-500 ease-in-out absolute mt-20 z-50 h-fit w-11/12 left-16 py-12 rounded-3xl bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg">
+  <div class="flex gap-x-16">
+    <!-- Menu Tabs -->
+    <div class="flex flex-col gap-3 py-6 w-fit">
+      <button id="Cable" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Cables</button>
+      <button id="SmartChargingCables" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Power Banks</button>
+      <button id="LiveTracker" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Mobile Chargers</button>
+      <button id="SmartWatchStraps" class="text-left font-inter font-semibold w-80 rounded-r-3xl px-7 py-4 transition-colors duration-300 ease-in-out hover:bg-white/40 hover:backdrop-blur-lg border-white/70 hover:shadow-lg">Mobile Chargers</button>
+    </div>
+    
+    <!-- Tab Contents -->
+    <div class="border-l-2">
+      <!-- Active by default -->
+      <div id="itemsPerOption11" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-100 h-full"></div>
+      
+      <!-- Hidden by default -->
+      <div id="itemsPerOption12" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+      <div id="itemsPerOption13" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+      <div id="itemsPerOption14" class="w-full gap-x-5 px-6 gap-y-7 flex transition-all duration-100 ease-in-out flex-wrap opacity-0 max-h-0 pointer-events-none"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="relative group w-full self-center overflow-hidden">
+  
+  <!-- LAYER 1: Relative (Gives the container its height) -->
+  <img id="sliderLayer1" class="relative w-full self-center transition-opacity duration-1000 ease-in-out opacity-100" src="" alt="">
+  
+  <!-- LAYER 2: Absolute (Overlays right on top of Layer 1, starts invisible) -->
+  <img id="sliderLayer2" class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" src="" alt="">
+  
+  <!-- Buttons (Removed inline onclick, added z-20 so they stay clickable above images) -->
+  <button id="prevButton" class="absolute z-20 left-2 top-96 md:top-1/2 -translate-x-20 transition-all duration-300 ease-in-out group-hover:translate-x-0.5 text-white lg:text-2xl 2xl:text-4xl sm:text-sm bg-black/40 hover:bg-black/70 px-4 py-2 rounded-full">❮</button>
+  <button id="nextButton" class="absolute z-20 right-2 top-96 md:top-1/2 translate-x-20 transition-all duration-300 ease-in-out group-hover:-translate-x-0.5 text-white lg:text-2xl 2xl:text-4xl sm:text-sm bg-black/40 hover:bg-black/70 px-4 py-2 rounded-full">❯</button>
+
+</div>
+
+  <!-- ============================================================== Banner Style button ==================================================================================== -->
+
+  <div class="HeadphoneSection py-10 w-full px-5 lg:px-10">
+    <div class="flex | xs:flex-col lg:flex-row xs:gap-1 sm:gap-3 md:gap-8 lg:justify-around | shadow-[6px_4px_20px_rgba(0.25,0.25,0.25,0.25)] bg-gray-100 xs:py-3 lg:py-8 xl:py-10 rounded-2xl lg:rounded-3xl px-1">
+      <div class="flex lg:flex-row lg:justify-start lg:gap-3 xl:gap-6 items-center text-blue-900 font-semibold text-lg xs:flex xs:flex-col xs:gap-1 md:gap-5 self-center xs:justify-between w-fit">
+        <span class="font-normal font-inter text-[clamp(1rem,3vw,8rem)] ">THE ICONIC</span>
+        <div class="flex xs:gap-4 md:gap-7 lg:gap-4 xl:gap-6">
+          <span class="font-orbitron text-blue-900 px-1 | xs:tracking-wide | text-[clamp(1rem,3vw,8rem)] | scale-x-110 transform self-center  "> HEADPHONE</span>
+          <span
+          class="bg-gradient-to-t from-blue-900 to-red-600 font-orbitron text-white xs:text-xs sm:text-xl md:text-3xl lg:text-lg el:text-xl xl:text-4xl 2xl:text-5xl self-center rounded-md tracking-widest px-2">
+          SERIES
+        </span>
+      </div>
+      </div>
+      <button
+        class="self-center | bg-gradient-to-l from-blue-600 to-purple-900 | text-white rounded-full | text-[clamp(1rem,2vw,10rem)] | tracking-wide hover:opacity-90 transition w-fit xs:px-3 py-1 lg:px-8">
+        LIVE NOW
+      </button>
+    </div>
+  </div>
+  <!-- =============================================================== NEW ARRIVALS SECTION =================================================================================== -->
+
+  <div class="max-w-full bg-white p-6 xs:p-2">
+    <div class="flex justify-between items-center px-4 mb-4 xs:p-0">
+      <div class="flex gap-2 xs:gap-1 lg:gap-2">
+        <span class="font-bold text-black text-4xl xs:text-lg lg:text-4xl">NEW</span>
+        <span class="font-bold text-blue-800 text-4xl xs:text-lg lg:text-4xl">ARRIVALS</span>
+      </div>
+      <a class="text-2xl text-blue-900 font-mono font-extrabold hover:underline xs:text-lg" href="#"> View All </a>
+    </div>
+    <section class="relative w-full overflow-hidden ">
+      <div id="" class="flex gap-6 overflow-x-auto cursor-grab select-none px-6 scrollbar-hide overflow-y-hidden xs:p-0 ">
+        <div class="cards flex gap-6 p-5 xs:p-3"></div>
+      </div>
+    </section>
+  </div>
+  <!-- ==============================================================ANIMATED ICONS SECTION ============================================================== -->
+
+  <div class="flex justify-center w-full xs:h-[38vh] xl:h-[34vh]">
+    <div class="flex justify-around w-11/12 xl:w-1/2 2xl:w-2/4">
+      <span class="flex flex-col items-center self-center">
+        <video class="w-14 lg:w-24" src="video/delivery.mp4" autoplay loop playsinline muted preload="auto" disablePictureInPicture controlslist="nodownload nofullscreen"></video>
+        <p class="text-xs font-semibold text-center" >Free Shipping Nationwide</p>
+    
+        
+      </span>
+      <span class="flex flex-col items-center self-center">
+        <video class="w-14 lg:w-24 " src="video/rating.mp4" autoplay loop playsinline muted preload="auto" disablePictureInPicture controlslist="nodownload nofullscreen" ></video>
+        <p class="text-xs font-semibold text-center" >70M+ Customers Satisfied</p>
+      </span>
+      <span class="flex flex-col items-center self-center">
+        <video class="w-14 lg:w-24 " src="video/warranty (1).mp4" autoplay loop playsinline muted preload="auto" disablePictureInPicture controlslist="nodownload nofullscreen"  ></video>
+        <p class="text-xs font-semibold text-center" >365 Days Warrenty</p>
+      </span>
+      <span class="flex flex-col items-center self-center">
+        <video class="w-14 lg:w-24 " src="video/certification.mp4" autoplay loop playsinline muted preload="auto" disablePictureInPicture controlslist="nodownload nofullscreen"  ></video>
+        <p class="text-xs font-semibold text-center" >Certified Products</p>
+      </span>
+    </div>
+  </div>
+  
+  <!-- ============================================================= SLIDING IMAGES SECTION ============================================================== -->
+<!-- Removed transition-all 500 ease-in-out from the parent container -->
+<div id="slidingimages" class="flex flex-nowrap overflow-hidden select-none cursor-grab gap-9 mb-10">
+  <div class="shrink-0 xs:w-60 sm:w-72 md:w-[48vw] lg:w-72 xl:w-[30vw]">
+    <img src="/public/img/slidingimage1.png" class="w-full pointer-events-none self-center" />
+  </div>
+
+  <div class="shrink-0 xs:w-64 sm:w-80 md:w-[48vw] lg:w-80 xl:w-[31vw]">
+    <img src="public/img/slidingimage2.png" class="w-full pointer-events-none self-center" />
+  </div>
+
+  <div class="shrink-0 xs:w-64 sm:w-80 md:w-[48vw] lg:w-80 xl:w-[31vw]">
+    <img src="public/img/slidingimage3.png" class="w-full pointer-events-none self-center" />
+  </div>
+
+  <div class="shrink-0 xs:w-64 sm:w-80 md:w-[48vw] lg:w-80 xl:w-[31vw]">
+    <img src="public/img/slidingimage4.png" class="w-full pointer-events-none self-center" />
+  </div>
+
+  <div class="shrink-0 xs:w-64 sm:w-80 md:w-[48vw] lg:w-80 xl:w-[31vw]">
+    <img src="public/img/slidingimage5.png" class="w-full pointer-events-none self-center" />
+  </div>
+
+  <div class="shrink-0 xs:w-64 sm:w-80 md:w-[48vw] lg:w-80 xl:w-[31vw]">
+    <img src="public/img/slidingimage6.png" class="w-full pointer-events-none self-center" />
+  </div>
+
+  <div class="shrink-0 xs:w-64 sm:w-80 md:w-[48vw] lg:w-80 xl:w-[31vw]">
+    <img src="public/img/slidingimage7.jpg" class="w-full pointer-events-none self-center" />
+  </div>
+</div>
+
+<!-- ================================================================ PROMOTION VIDEO SECTION ============================================================ -->
+<div class="flex justify-center w-full flex-col py-10">
+  <div class="flex mb-5">
+    <p class=" pl-4 text-black text-xl font-bold md:text-4xl 2xl:text-5xl">MEET</p>
+    <p class=" pl-1 text-blue-900 text-xl font-bold md:text-4xl 2xl:text-5xl">GENERATION RONIN</p>
+  </div>
+  <section class="relative w-full overflow-hidden">
+      <div class="flex gap-6 overflow-x-auto cursor-grab select-none px-2 scrollbar-hide overflow-y-hidden">
+        <div id="promotion" class=" flex gap-4 py-2 "></div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- ============================================================== Top Trending Section =============================================================== -->
+
+  <div class="max-w-full bg-white p-6 xs:p-2">
+    <div class="flex justify-between items-center px-4 mb-4 xs:p-0">
+      <div class="flex gap-2 xs:gap-1 lg:gap-2">
+        <span class="font-bold text-black text-4xl xs:text-lg lg:text-4xl">TOP</span>
+        <span class="font-bold text-blue-800 text-4xl xs:text-lg lg:text-4xl">TRENDING</span>
+      </div>
+      <a class="text-2xl text-blue-900 font-mono font-extrabold hover:underline xs:text-lg" href="#"> View All </a>
+    </div>
+     <section class="relative w-full overflow-hidden ">
+      <div id="" class="flex gap-6 overflow-x-auto cursor-grab select-none px-6 scrollbar-hide overflow-y-hidden xs:p-0 ">
+        <div class="cards flex gap-6 p-5 xs:p-3"></div>
+      </div>
+    </section>
+  </div>
+  <!-- ============================================================== LATEST NEWS Section =============================================================== -->
+
+  
+  <div class="max-w-full bg-white p-6 xs:p-2">
+    <div class="flex justify-between items-center px-4 mb-4 xs:p-0">
+      <div class="flex gap-2 xs:gap-1 lg:gap-2">
+        <span class="font-bold text-black text-4xl xs:text-lg lg:text-4xl">LATEST</span>
+        <span class="font-bold text-blue-800 text-4xl xs:text-lg lg:text-4xl">NEWS</span>
+      </div>
+      <a class="text-2xl text-blue-900 font-mono font-extrabold hover:underline xs:text-lg" href="#"> View All </a>
+    </div>
+        <div id="TrendingNews" class="flex py-8 overflow-hidden cursor-grab gap-9"></div>
+  </div>
+
+ <!-- ================================================================ FEATURED GLOBALLY SECTION ======================================================== -->
+
+ <div class=" bg-white py-10 flex flex-col justify-center align-middle">
+  <div class=" flex  xs:justify-start xl:justify-center md:p-5 xs:p-2 self-center w-full">
+    <div class="flex gap-2 p-3">
+      <p class="md:text-4xl font-bold font-inter text-black xs:text-xl dl:text-5xl">FEATURED</p>
+      <p class="md:text-4xl font-bold font-inter text-blue-900 xs:text-xl dl:text-5xl">GLOBALLY</p>
+    </div>
+  </div>
+
+
+<!-- Removed transition-all 500 ease-in-out and justify-center -->
+<div id="slidingChannels" class="w-11/12 3xl:w-3/5 flex flex-nowrap overflow-hidden select-none cursor-grab md:gap-28 xs:gap-5 sm:gap-10 dl:gap-44 mb-10 self-center md:px-28 dl:mx-60 xs:px-5 py-6">
+  <div class="shrink-0 xs:w-20 dl:w-28 self-center">
+    <img src="public/img/NewsChannel(1).webp" class="w-full cursor-pointer pointer-events-none self-center"/>
+  </div>
+
+  <div class="shrink-0 xs:w-20 dl:w-28 self-center">
+    <img src="public/img/NewsChannel(2).webp" class="w-full cursor-pointer pointer-events-none self-center"/>
+  </div>
+
+  <div class="shrink-0 xs:w-20 dl:w-28 self-center">
+    <img src="public/img/NewsChannel(3).jpeg" class="w-full cursor-pointer pointer-events-none self-center"/>
+  </div>
+
+  <div class="shrink-0 xs:w-20 dl:w-28 self-center">
+    <img src="public/img/NewsChannel(4).jpeg" class="w-full cursor-pointer pointer-events-none self-center"/>
+  </div>
+
+  <div class="shrink-0 xs:w-20 dl:w-28 self-center">
+    <img src="public/img/NewsChannel(5).jpeg" class="w-full cursor-pointer pointer-events-none self-center"/>
+  </div>
+
+  <div class="shrink-0 xs:w-20 dl:w-28 self-center">
+    <img src="public/img/NewsChannel(6).jpeg" class="w-full cursor-pointer pointer-events-none self-center"/>
+  </div>
+
+  <div class="shrink-0 xs:w-20 dl:w-28 self-center">
+    <img src="public/img/NewsChannel(7).webp" class="w-full cursor-pointer pointer-events-none self-center"/>
+  </div>
+</div>
+
+<div class="mx-12 flex flex-col gap-3">
+  <p class="font-semibold font-inter md:text-xl xs:text-sm ">Ronin - A Globally Accredited Smart Wearable & Tech Accessories Brand</p>
+  <p class="font-inter xs:text-xs md:text-sm">Welcome to Ronin, Pakistan's trusted name for innovative smart wearable and tech accessories. Our mission? To bring cutting-edge technology to your fingertips-without breaking the bank. Whether you're a gamer,
+fitness enthusiast, or music lover, we've got something tailored for you.</p>
+  <div class="flex gap-1 xs:flex-col md:flex-row">
+    <p class="font-inter xs:text-xs md:text-sm">Discover why Ronin is the</p>
+    <p class="font-inter md:font-semibold xs:font-bold xs:text-xs md:text-sm">number one choice for smart wearable & tech accessories in Pakistan.</p>
+  </div>
+  <p class="cursor-pointer">Read More+</p>
+</div>
+ </div>
+
+ <!-- ============================================================ FOOTER ============================================================================== -->
+
+ <div class="px-5 xs:p-2 ">
+  <div class="bg-[#162248] | flex justify-between xs:flex-col md:flex-row xs:gap-8 | px-10 py-5 xs:p-6 md:p-8 | rounded-3xl | ">
+  <div class="flex w-3/5 justify-between md:self-center xs:flex-col xs:gap-5 md:flex-row md:w-5/6 xl:w-3/5">
+    <div class=" w-1/3 flex flex-col gap-2 h-fit">
+      <p class="text-white font-inter text-sm font-semibold xs:text-xs">SHOP</p>
+      <div class="md:flex flex-col break-words gap-3 w-full xl:flex-wrap xl:h-60 xs:hidden md:flex-nowrap md:h-fit">
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">All Products</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Earbuds</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Handsfree</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Neckband</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Headphones</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Power Bank</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Charger</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Smart Watch</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Data Cable</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Car Charger</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Laser Print</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Gift Store</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Corporate Orders</a>
+      </div>
+    </div>
+    <div class=" w-1/3 md:flex flex-col gap-2 h-fit">
+      <p class="text-white text-sm font-inter font-semibold xs:text-xs">HELP</p>
+      <div class="md:flex flex-col gap-3 w-full xl:flex-wrap md:flex-nowrap xs:h-52 md:h-fit xl:h-52 xs:hidden ">
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Blogs</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">News</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Privacy Policy</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Modes Of Payment</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Terms and Condition</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white text-wrap" href="">Shipping and Return Policy</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Register a Complaint</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Tarck Your Order</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Claim and Services</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Warrenty Policy</a>
+        <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Contact Us</a>
+      </div> 
+    </div>
+    <div class="flex flex-col gap-2">
+      <p class="text-white text-sm font-inter font-semibold xs:text-xs">COMPANY</p>
+      <div class="md:flex flex-col gap-3 xs:hidden">
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">About Us</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Express Delivery</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Careers</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Official brand Outlet</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">Customer Care Center</a>
+      <a class="text-[#9E9793] text-sm transition-colors duration-300 ease-in-out hover:text-white" href="">News & Updates</a>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col md:border-l-2 md:border-[#B0AFAD] md:py-2 xl:w-[28vw] gap-5 md:self-center md:px-3 md:w-1/4 xl:pl-16 ">
+    <img class="xl:w-36 xs:w-12 sm:w-14 md:w-18" src="public/img/Ronin.png" alt="">
+    <div class="flex justify-between xs:w-52 md:w-36 xl:w-52">
+      <img class="w-5" src="public/img/facebook.png" alt="">
+      <img class="w-5" src="public/img/instagram.png" alt="">
+      <img class="w-5" src="public/img/youtube.png" alt="">
+      <img class="w-5" src="public/img/linkedin.png" alt="">
+      <img class="w-5 md:hidden xl:block" src="public/img/twitter.png" alt="">
+    </div>
+    <p class="text-[#9E9793]">We're here to help</p>
+    <div class="text-white text-sm font-inter font-semibold">
+    <p class="transition-colors duration-300 ease-in-out hover:text-red-600 cursor-pointer">Call Us: 021 111 176 646</p>
+    <p class="transition-colors duration-300 ease-in-out hover:text-red-600 cursor-pointer">Email Us: Support@ronin.pk</p>
+    </div>
+    <p class="text-white font-semibold font-inter md:text-wrap">Get exclusive offer and updates</p>
+    <div class="flex gap-3 md:flex-col xl:flex-row">
+      <input class="bg-transparent text-white w-60 xs:w-40 sm:w-4/5 md:w-32 xl:w-5/6 md:p-2 rounded-xl pl-6 py-2 font-inter font-semibold outline-none border border-white md:text-sm" type="email" name="" id="" placeholder="Email Address">
+      <button class="self-center text-black bg-white h-8 px-4 cursor-pointer text-sm font-inter rounded-xl" type="submit">Submit</button>
+    </div>
+  </div>
+</div>
+  <div class="flex px-8 py-6 xs:flex-col-reverse xs:gap-4 xs:align-middle xs:justify-center md:flex-row xl:justify-between">
+    <div class="flex self-center gap-1 ">
+      <p class="text-xs self-auto font-inter text-[#4D4D6A] cursor-default">&copy; 2026 </p>
+      <p class=" text-xs font-inter font-semibold text-[#4D4D6A] cursor-pointer">Ronin</p>
+      <p class="text-xs font-inter text-[#4D4D6A] cursor-default"> - All Rights Reserved</p>
+    </div>
+    <div class="flex self-center md:w-2/3 justify-between xs:w-[80vw] xl:w-1/3">
+      <img class="cursor-pointer xs:w-7 md:w-10" src="public/img/paymentMethod (1).png" alt="">
+      <img class="cursor-pointer xs:w-7 md:w-10" src="public/img/paymentMethod (1).webp" alt="">
+      <img class="cursor-pointer xs:w-7 md:w-10" src="public/img/paymentMethod (2).png" alt="">
+      <img class="cursor-pointer xs:w-7 md:w-10" src="public/img/paymentMethod (3).png" alt="">
+      <img class="cursor-pointer xs:w-7 md:w-10" src="public/img/paymentMethod (4).png" alt="">
+      <img class="cursor-pointer xs:w-7 md:w-10" src="public/img/paymentMethod (5).png" alt="">
+      <img class="cursor-pointer xs:w-7 md:w-10" src="public/img/paymentMethod (6).png" alt="">
+      <img class="cursor-pointer xs:w-7 md:w-10 " src="public/img/paymentMethod (7).png" alt="">
+    </div>
+  </div>
+ </div>
+
+
+
+
+
+</body>
+
+</html>
