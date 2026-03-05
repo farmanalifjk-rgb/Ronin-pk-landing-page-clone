@@ -1,49 +1,49 @@
 // =========================================================== PROMOTION SECTION ============================================================================>
 const VideoDescription = [
   {
-    Videolink: "/video/promotion1.mp4.webm",
+    Videolink: "public/video/promotion1.mp4.webm",
     ImageLink: "/img/avatar-iqra-aziz.webp",
     Name: "IQRA AZIZ",
     profession: "#actress",
 
   },
   {
-    Videolink: "/video/promotion2.mp4.webm",
+    Videolink: "public/video/promotion2.mp4.webm",
     ImageLink: "/img/avatar-hasan-raheem.webp",
     Name: "HASAN RAHEEM",
     profession: "#singer",
 
   },
   {
-    Videolink: "/video/promotion3.mp4.webm",
+    Videolink: "public/video/promotion3.mp4.webm",
     ImageLink: "/img/avatar-hamza-sohail.webp",
     Name: "HAMZA SOHAIL",
     profession: "#actor",
 
   },
   {
-    Videolink: "/video/promotion4.mp4.webm",
+    Videolink: "public/video/promotion4.mp4.webm",
     ImageLink: "/img/avatar-kinza.webp",
     Name: "KINZA HASHMI",
     profession: "#actress",
 
   },
   {
-    Videolink: "/video/promotion5.mp4.webm",
+    Videolink: "public/video/promotion5.mp4.webm",
     ImageLink: "/img/avatar-anural.webp",
     Name: "ANNURAL KHALID",
     profession: "#singer",
 
   },
   {
-    Videolink: "/video/promotion6.mp4.webm",
+    Videolink: "public/video/promotion6.mp4.webm",
     ImageLink: "/img/avatar-asim.webp",
     Name: "ASIM AZHAR",
     profession: "#singer",
 
   },
   {
-    Videolink: "/video/promotion7.mp4.webm",
+    Videolink: "public/video/promotion7.mp4.webm",
     ImageLink: "/img/avatar-hannan.webp",
     Name: "ABDUL HANIN",
     profession: "#singer",
