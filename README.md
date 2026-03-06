@@ -23,7 +23,7 @@ A modern, responsive landing-page clone inspired by **ronin.pk** — built with 
 
 ## Preview 🖼️
 
-<img alt="Landing-page-screenshot" src="">
+<img alt="Landing-page-screenshot" src="public/img/Screenshot 2026-03-06 010513.png">
 
 ![Ronin Landing Page Preview]
 
