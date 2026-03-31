@@ -1,0 +1,39 @@
+from django.db import models
+
+class NewArrivalProducts (models.Model):
+    category = models.CharField()
+    title = models.CharField()
+    description = models.TextField()
+    image_url = models.FileField(upload_to ='NewArrivalsProductsImages',null=True,default=None)
+    imgVariant1 = models.FileField(upload_to ='NewArrivalsProductsImages',null=True,default=None)
+    imgVariant2 = models.FileField(upload_to ='NewArrivalsProductsImages',null=True,default=None)
+    oldPrice = models.CharField(blank=True, null=True )
+    newPrice = models.CharField()
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    parent = models.ForeignKey('self',blank=True,null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        if self.parent:
+            return f"{self.parent.name} > {self.name}"
+        return self.name
+
+
+class CategoryProducts(models.Model):
+    peding1 = models.CharField(max_length=100, null=True, blank=True)
+    width1 = models.CharField(max_length=100, null=True, blank=True)
+    height1 = models.CharField(max_length=100, null=True, blank=True)
+    width2 = models.CharField(max_length=100, null=True, blank=True)
+    top1  = models.CharField(max_length=100, null=True, blank=True)
+    left1 = models.CharField(max_length=100, null=True, blank=True)
+    left2  = models.CharField(max_length=100, null=True, blank=True)
+    top2  = models.CharField(max_length=100, null=True, blank=True)
+    image = models.FileField(upload_to='NavbarProductsImages',null=True,default=None)
+    name = models.CharField(max_length=100)
+    Category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name        
+
