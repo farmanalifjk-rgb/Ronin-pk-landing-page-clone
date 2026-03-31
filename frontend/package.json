@@ -1,0 +1,28 @@
+{
+  "name": "ronin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://%3CYOUR_GITHUB_USERNAME%3E@github.com/farmanalifjk-rgb/Ronin-pk-landing-page-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/farmanalifjk-rgb/Ronin-pk-landing-page-clone/issues"
+  },
+  "homepage": "https://github.com/farmanalifjk-rgb/Ronin-pk-landing-page-clone#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.0.0"
+  }
+}

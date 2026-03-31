@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account - Ronin</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="img/favicon.webp" type="image/x-icon">
+    <!-- Load Tailwind CSS -->
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen font-sans text-gray-900">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md my-5">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">Create an Account</h2>
+            <p class="text-gray-500 text-sm mt-2">Join Ronin today to get started.</p>
+        </div>
+
+        <!-- Alert Box for Backend Errors (Hidden by default) -->
+        <div id="alert-box" class="hidden mb-4 p-3 rounded-lg text-sm text-red-700 bg-red-100 border border-red-200"></div>
+
+        <!-- Registration Form (Added 'novalidate' to disable default browser popups) -->
+        <form id="registerForm" class="space-y-4" novalidate>
+            
+            <!-- Username Field -->
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                <input type="text" id="username" placeholder="Choose a username" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                <p id="error-username" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+
+            <!-- Email Field -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                <p id="error-email" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+
+            <!-- Password Field with Eye Icon -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <div class="relative">
+                    <input type="password" id="password" placeholder="••••••••" 
+                        class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                    
+                    <!-- Eye Button -->
+                    <button type="button" class="toggle-password absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <!-- Eye Open -->
+                        <svg class="eye-open h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <!-- Eye Closed -->
+                        <svg class="eye-closed h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                        </svg>
+                    </button>
+                </div>
+                <p id="error-password" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+
+            <!-- Confirm Password Field with Eye Icon -->
+            <div>
+                <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                <div class="relative">
+                    <input type="password" id="confirm_password" placeholder="••••••••" 
+                        class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                    
+                    <!-- Eye Button -->
+                    <button type="button" class="toggle-password absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <svg class="eye-open h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <svg class="eye-closed h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                        </svg>
+                    </button>
+                </div>
+                <p id="error-confirm_password" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn"
+                class="w-full flex justify-center bg-[#284088] text-white font-semibold py-2.5 px-4 rounded-lg transition-colors mt-6 shadow-sm">
+                 <img src="img/favicon.webp" alt="">
+                egister
+            </button>
+
+        </form>
+
+         <!-- Social Login Divider -->
+        <div class="flex items-center my-6">
+            <div class="border-t border-gray-300 flex-grow"></div>
+            <div class="px-4 text-gray-500 text-sm font-medium">Or continue with</div>
+            <div class="border-t border-gray-300 flex-grow"></div>
+        </div>
+
+        <!-- Social Login Buttons -->
+        <div class="space-y-3">
+            <!-- Google Button (Links directly to Django's allauth endpoint) -->
+            <a href="http://localhost:8000/accounts/google/login/" 
+                class="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 text-gray-700 font-medium transition-colors">
+                <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                Google
+            </a>
+
+           
+        </div>
+
+        <!-- Login Link -->
+        <div class="mt-8 text-center text-sm">
+            <span class="text-gray-600">Already have an account?</span> 
+            <a href="login.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Sign in here</a>
+        </div>
+
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. EYE ICON TOGGLE LOGIC
+        // ==========================================
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function() {
+                // Find the input right next to this button
+                const input = this.previousElementSibling;
+                const eyeOpen = this.querySelector('.eye-open');
+                const eyeClosed = this.querySelector('.eye-closed');
+
+                // Toggle type
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    eyeOpen.classList.add('hidden');
+                    eyeClosed.classList.remove('hidden');
+                } else {
+                    input.type = 'password';
+                    eyeOpen.classList.remove('hidden');
+                    eyeClosed.classList.add('hidden');
+                }
+            });
+        });
+
+        // ==========================================
+        // 2. FORM VALIDATION & SUBMISSION
+        // ==========================================
+        const form = document.getElementById("registerForm");
+        const alertBox = document.getElementById("alert-box");
+
+        // Helper function to set a field to "Red / Error Mode"
+        function setFieldError(fieldId, message) {
+            const input = document.getElementById(fieldId);
+            const errorMsg = document.getElementById(`error-${fieldId}`);
+            
+            // Swap borders to red
+            input.classList.remove('border-gray-300', 'focus:ring-blue-500', 'focus:border-blue-500');
+            input.classList.add('border-red-500', 'focus:ring-red-500', 'focus:border-red-500');
+            
+            // Show message
+            errorMsg.textContent = message;
+            errorMsg.classList.remove('hidden');
+        }
+
+        // Helper function to reset a field to "Normal Mode"
+        function resetFieldError(fieldId) {
+            const input = document.getElementById(fieldId);
+            const errorMsg = document.getElementById(`error-${fieldId}`);
+            
+            // Swap borders back to normal
+            input.classList.add('border-gray-300', 'focus:ring-blue-500', 'focus:border-blue-500');
+            input.classList.remove('border-red-500', 'focus:ring-red-500', 'focus:border-red-500');
+            
+            // Hide message
+            errorMsg.classList.add('hidden');
+        }
+
+            form.addEventListener("submit", function(e) {
+            e.preventDefault(); 
+            alertBox.classList.add("hidden"); 
+
+            let isValid = true;
+            
+            // 1. Grab the exact values from the input fields
+            const usernameValue = document.getElementById("username").value.trim();
+            const emailValue = document.getElementById("email").value.trim();
+            const passwordValue = document.getElementById("password").value;
+            const confirmPasswordValue = document.getElementById("confirm_password").value;
+
+            // ==========================================
+            // 2. USERNAME VALIDATION
+            // ==========================================
+            if (usernameValue === "") {
+                setFieldError("username", "Please enter a username.");
+                isValid = false;
+            } else if (usernameValue.length < 3) {
+                setFieldError("username", "Username must be at least 3 characters long.");
+                isValid = false;
+            } else if (!/^[a-zA-Z]+$/.test(usernameValue)) {
+                setFieldError("username", "Username can only contain letters (no numbers or spaces).");
+                isValid = false;
+            } else {
+                resetFieldError("username");
+            }
+
+            // ==========================================
+            // 3. EMAIL VALIDATION & TYPO CHECK
+            // ==========================================
+            const emailTypos = {
+                "gamil.com": "gmail.com", "gmai.com": "gmail.com", "gmial.com": "gmail.com",
+                "otulook.com": "outlook.com", "outlok.com": "outlook.com",
+                "yaho.com": "yahoo.com", "hotmil.com": "hotmail.com"
+            };
+
+            if (emailValue === "") {
+                setFieldError("email", "Please enter your email address.");
+                isValid = false;
+            } else if (!emailValue.includes("@")) {
+                setFieldError("email", "Email must contain an '@' symbol.");
+                isValid = false;
+            } else if (emailValue.startsWith("@")) {
+                setFieldError("email", "Please enter the part of the email before the '@'.");
+                isValid = false;
+            } else if (emailValue.split("@")[1] === "") {
+                setFieldError("email", "Please enter the domain after the '@' (e.g., gmail.com).");
+                isValid = false;
+            } else if (!emailValue.split("@")[1].includes(".")) {
+                setFieldError("email", "Email domain must contain a dot (e.g., .com).");
+                isValid = false;
+            } else {
+                const domain = emailValue.split("@")[1].toLowerCase();
+                if (emailTypos[domain]) {
+                    setFieldError("email", `Did you mean '${emailTypos[domain]}' instead of '${domain}'?`);
+                    isValid = false;
+                } else {
+                    resetFieldError("email");
+                }
+            }
+
+            // ==========================================
+            // 4. PASSWORD VALIDATION
+            // ==========================================
+            if (passwordValue === "") {
+                setFieldError("password", "Please enter a password.");
+                isValid = false;
+            } else if (passwordValue.length < 8) {
+                setFieldError("password", "Password must be at least 8 characters long.");
+                isValid = false;
+            } else if (!/[a-zA-Z]/.test(passwordValue)) {
+                setFieldError("password", "Password must contain at least one letter.");
+                isValid = false;
+            } else if (!/\d/.test(passwordValue)) {
+                setFieldError("password", "Password must contain at least one number.");
+                isValid = false;
+            } else if (/[^a-zA-Z0-9-]/.test(passwordValue)) {
+                setFieldError("password", "Password contains invalid characters. Only letters, numbers, and '-' allowed.");
+                isValid = false;
+            } else {
+                resetFieldError("password");
+            }
+
+            if (confirmPasswordValue === "") {
+                setFieldError("confirm_password", "Please confirm your password.");
+                isValid = false;
+            } else if (passwordValue !== confirmPasswordValue) {
+                setFieldError("confirm_password", "Passwords do not match.");
+                isValid = false;
+            } else {
+                resetFieldError("confirm_password");
+            }
+
+            // If any frontend validation failed, stop here!
+            if (!isValid) return; 
+
+            // ==========================================
+            // 5. SHOW LOADING STATE
+            // ==========================================
+            const submitBtn = document.getElementById("submitBtn");
+            submitBtn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg> Signing Up...`;
+            submitBtn.disabled = true;
+            submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+
+            
+                        // ==========================================
+            // 6. SEND TO DJANGO BACKEND
+            // ==========================================
+            fetch("http://localhost:8000/api/users/csrf/", {
+                method: "GET",
+                credentials: "include" 
+            })
+            .then(res => res.json())
+            .then(csrfData => {
+                const csrfToken = csrfData.csrfToken; 
+
+                return fetch("http://localhost:8000/api/users/register/", {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": csrfToken
+                    },
+                    body: JSON.stringify({
+                        username: usernameValue,
+                        email: emailValue,
+                        password1: passwordValue,       // Changed back to password1
+                        password2: confirmPasswordValue // Changed back to password2
+                    }),
+                    credentials: "include"
+                });
+            })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(errData => { throw errData; });
+                }
+                return res.json();
+            })
+            .then(result => {
+                // SUCCESS! 
+                if (result.success || result.message === "User created successfully") {
+                    sessionStorage.setItem("justRegistered", "true");
+                    window.location.href = "profile.html";
+                } else if (result.errors) {
+                    // Sometimes Django sends a 200 OK but still includes the errors object
+                    throw result; 
+                } else {
+                    alertBox.textContent = result.error || "An unexpected error occurred.";
+                    alertBox.classList.remove("hidden");
+                }
+            })
+            .catch(errData => {
+                console.error("Django Error:", errData);
+                
+                if (errData instanceof TypeError || errData instanceof SyntaxError) {
+                    alertBox.textContent = "Server connection error. Is Django running?";
+                    alertBox.classList.remove("hidden");
+                    return;
+                }
+
+                let hasFieldErrors = false;
+
+                // CRITICAL FIX: Look inside errData.errors if it exists!
+                const backendErrors = errData.errors || errData;
+
+                // 1. Check Username Errors
+                if (backendErrors.username) {
+                    setFieldError("username", Array.isArray(backendErrors.username) ? backendErrors.username[0] : backendErrors.username);
+                    hasFieldErrors = true;
+                }
+                
+                // 2. Check Email Errors
+                if (backendErrors.email) {
+                    setFieldError("email", Array.isArray(backendErrors.email) ? backendErrors.email[0] : backendErrors.email);
+                    hasFieldErrors = true;
+                }
+                
+                // 3. Check Password Errors (Checking both 'password' and 'password1')
+                if (backendErrors.password || backendErrors.password1) {
+                    const pwdErr = backendErrors.password || backendErrors.password1;
+                    setFieldError("password", Array.isArray(pwdErr) ? pwdErr[0] : pwdErr);
+                    hasFieldErrors = true;
+                }
+
+                // 4. Check Confirm Password Errors
+                if (backendErrors.password2) {
+                    setFieldError("confirm_password", Array.isArray(backendErrors.password2) ? backendErrors.password2[0] : backendErrors.password2);
+                    hasFieldErrors = true;
+                }
+
+                // Handle general errors not attached to a specific box
+                const generalError = errData.error || errData.detail || errData.message || (backendErrors.non_field_errors ? backendErrors.non_field_errors[0] : null);
+                
+                if (generalError) {
+                    alertBox.textContent = generalError;
+                    alertBox.classList.remove("hidden");
+                } else if (!hasFieldErrors) {
+                    // Absolute fallback
+                    alertBox.textContent = "Registration failed. Please try again.";
+                    alertBox.classList.remove("hidden");
+                }
+            })
+            .finally(() => {
+                // Reset the submit button
+                submitBtn.innerHTML = `<span>Sign Up</span>`;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+            });
+                
+            })
+
+    </script>
+</body>
+</html>
