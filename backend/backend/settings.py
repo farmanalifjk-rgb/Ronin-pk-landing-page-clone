@@ -112,13 +112,11 @@ CSRF_TRUSTED_ORIGINS = [
 
 ROOT_URLCONF = 'backend.urls'
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # UPDATE THIS LINE:
-        'DIRS': [BASE_DIR.parent / 'frontend'],
+        'DIRS': [os.path.join(BASE_DIR, '../frontend')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
