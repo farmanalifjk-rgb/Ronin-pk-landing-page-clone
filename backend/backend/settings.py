@@ -100,15 +100,12 @@ AUTHENTICATION_BACKENDS = [
 SOCIALACCOUNT_LOGIN_ON_GET = True # Skips the "Are you sure you want to login?" intermediate page
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
     "https://ronin-pk-landing-page-clone.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True  # ADD THIS! It allows the frontend to send session cookies.
 
 # Tell Django that your Vite frontend is completely safe for POST requests
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
     "https://ronin-pk-landing-page-clone.vercel.app",
 ]
 
