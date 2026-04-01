@@ -5,52 +5,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const Trendingarray = [
     {
-      TrendingImage: "/img/Article_1_.webp",
+      TrendingImage: "img/Article_1_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_2_.webp",
+      TrendingImage: "img/Article_2_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_3_.webp",
+      TrendingImage: "img/Article_3_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_4_.webp",
+      TrendingImage: "img/Article_4_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_5_.webp",
+      TrendingImage: "img/Article_5_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_6_.webp",
+      TrendingImage: "img/Article_6_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_7_.webp",
+      TrendingImage: "img/Article_7_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_8_.webp",
+      TrendingImage: "img/Article_8_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_9_.webp",
+      TrendingImage: "img/Article_9_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     },
     {
-      TrendingImage: "/img/Article_10_.webp",
+      TrendingImage: "img/Article_10_.webp",
       TrendingTitle: "Ronin Unveils 5 Software Based Earbuds...",
       TrendingDescription: "Ronin has never believed in doing what everyone else does. And with its latest product reveal the the brand makes that clear again."
     }
