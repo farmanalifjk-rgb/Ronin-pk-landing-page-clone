@@ -23,7 +23,6 @@ from users.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
     path('api/products/', include('products.urls')),
     path('api/users/', include('users.urls')),
     path('accounts/', include('allauth.urls')),
