@@ -4,7 +4,6 @@
   "description": "",
   "main": "1.js",
   "scripts": {
-    "start": "vite",
     "build": "vite build"
   },
   "repository": {
