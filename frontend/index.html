@@ -502,7 +502,7 @@ fitness enthusiast, or music lover, we've got something tailored for you.</p>
         e.preventDefault(); // Stop the link from clicking normally
 
         // Ask Django if the user is currently logged in
-        fetch("http://localhost:8000/api/users/check-auth-status/", {
+        fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/check-auth-status/", {
             method: "GET",
             credentials: "include", // CRITICAL: This sends the browser cookie to Django!
             cache: "no-store"
@@ -511,16 +511,16 @@ fitness enthusiast, or music lover, we've got something tailored for you.</p>
         .then(data => {
             if (data.is_authenticated) {
                 // User is logged in! Send to profile.
-                window.location.href = "profile.html";
+                window.location.href = "https://ronin-pk-landing-page-clone.vercel.app/profile.html";
             } else {
                 // User is NOT logged in! Send to register.
-                window.location.href = "register.html";
+                window.location.href = "https://ronin-pk-landing-page-clone.vercel.app/register.html";
             }
         })
         .catch(err => {
             console.error("Auth check failed:", err);
             // If the server is offline, default to the register page
-            window.location.href = "register.html";
+            window.location.href = "https://ronin-pk-landing-page-clone.vercel.app/register.html";
         });
     });
 </script>

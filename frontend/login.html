@@ -36,7 +36,7 @@
             <div>
                 <div class="flex justify-between items-center mb-1">
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <a href="http://localhost:5173/forget_password.html" class="text-xs text-blue-600 hover:text-blue-800 font-medium">Forgot password?</a>
+                    <a href="https://ronin-pk-landing-page-clone.vercel.app/forget_password.html" class="text-xs text-blue-600 hover:text-blue-800 font-medium">Forgot password?</a>
                 </div>
                 <div class="relative">
                     <input type="password" id="password" placeholder="••••••••" 
@@ -76,7 +76,7 @@
         <!-- Social Login Buttons -->
         <div class="space-y-3">
             <!-- Google Button -->
-            <a href="http://localhost:8000/accounts/google/login/" 
+            <a href="https://ronin-pk-landing-page-clone-production.up.railway.app/accounts/google/login/" 
                 class="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 text-gray-700 font-medium transition-colors">
                 <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -93,7 +93,7 @@
         <!-- Register Link -->
         <div class="mt-8 text-center text-sm">
             <span class="text-gray-600">Don't have an account?</span> 
-            <a href="register.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Create one here</a>
+            <a href="https://ronin-pk-landing-page-clone.vercel.app/register.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Create one here</a>
         </div>
 
     </div>
@@ -182,7 +182,7 @@
             submitBtn.classList.add("opacity-70", "cursor-not-allowed");
 
             // 1. FIRST, Ask Django for the CSRF Token
-            fetch("http://localhost:8000/api/users/csrf/", {
+            fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/csrf/", {
                 method: "GET",
                 credentials: "include" 
             })
@@ -191,7 +191,7 @@
                 const csrfToken = csrfData.csrfToken; 
 
                 // 2. NOW, send the actual Login request
-                return fetch("http://localhost:8000/api/users/login/", {
+                return fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/login/", {
                     method: "POST",
                     headers: { 
                         "Content-Type": "application/json",

@@ -101,6 +101,7 @@ SOCIALACCOUNT_LOGIN_ON_GET = True # Skips the "Are you sure you want to login?" 
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://ronin-pk-landing-page-clone.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True  # ADD THIS! It allows the frontend to send session cookies.
 
@@ -108,6 +109,7 @@ CORS_ALLOW_CREDENTIALS = True  # ADD THIS! It allows the frontend to send sessio
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://ronin-pk-landing-page-clone.vercel.app",
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -197,10 +199,10 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # ---------------------------------------------------------
 
 # 1. Where to send the user immediately after a successful login
-LOGIN_REDIRECT_URL = 'http://localhost:5173/profile.html'
+LOGIN_REDIRECT_URL = 'https://ronin-pk-landing-page-clone.vercel.app/profile.html'
 
 # 2. Where to send the user after they log out
-ACCOUNT_LOGOUT_REDIRECT_URL = 'http://localhost:5173/login.html'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'https://ronin-pk-landing-page-clone.vercel.app/login.html'
 
 # 3. Skip the intermediate "Are you sure you want to sign in?" black/white screen
 SOCIALACCOUNT_LOGIN_ON_GET = True

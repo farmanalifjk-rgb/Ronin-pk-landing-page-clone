@@ -103,7 +103,7 @@
         <!-- Social Login Buttons -->
         <div class="space-y-3">
             <!-- Google Button (Links directly to Django's allauth endpoint) -->
-            <a href="http://localhost:8000/accounts/google/login/" 
+            <a href="https://ronin-pk-landing-page-clone-production.up.railway.app/accounts/google/login/" 
                 class="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 text-gray-700 font-medium transition-colors">
                 <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -120,7 +120,7 @@
         <!-- Login Link -->
         <div class="mt-8 text-center text-sm">
             <span class="text-gray-600">Already have an account?</span> 
-            <a href="login.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Sign in here</a>
+            <a href="https://ronin-pk-landing-page-clone.vercel.app/login.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Sign in here</a>
         </div>
 
     </div>
@@ -291,7 +291,7 @@
                         // ==========================================
             // 6. SEND TO DJANGO BACKEND
             // ==========================================
-            fetch("http://localhost:8000/api/users/csrf/", {
+            fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/csrf/", {
                 method: "GET",
                 credentials: "include" 
             })
@@ -299,7 +299,7 @@
             .then(csrfData => {
                 const csrfToken = csrfData.csrfToken; 
 
-                return fetch("http://localhost:8000/api/users/register/", {
+                return fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/register/", {
                     method: "POST",
                     headers: { 
                         "Content-Type": "application/json",

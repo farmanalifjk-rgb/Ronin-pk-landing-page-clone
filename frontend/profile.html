@@ -13,7 +13,7 @@
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md my-8">
         <!-- Back to Home Button -->
 <div class="mb-6 flex justify-end ">
-    <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors">
+    <a href="https://ronin-pk-landing-page-clone.vercel.app/index.html" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
         </svg>
@@ -121,7 +121,7 @@
         const submitBtn = document.getElementById("submitBtn");
 
         // The URL of your Django API
-        const API_URL = "http://localhost:8000/api/users/profile/";
+        const API_URL = "https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/profile/";
 
         // ----------------------------------------------------
         // 1. FETCH DATA ON PAGE LOAD
@@ -207,7 +207,7 @@
             const formData = new FormData(form);
 
             // 1. FIRST, Fetch CSRF Token!
-            fetch("http://localhost:8000/api/users/csrf/", {
+            fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/csrf/", {
                 method: "GET",
                 credentials: "include" 
             })
@@ -289,7 +289,7 @@
                 confirmLogoutBtn.innerHTML = "Signing out...";
                 confirmLogoutBtn.disabled = true;
 
-                fetch("http://localhost:8000/api/users/logout/", {
+                fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/users/logout/", {
                     method: "GET",
                     credentials: "include",
                     cache: "no-store"
