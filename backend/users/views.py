@@ -14,6 +14,12 @@ from django.conf import settings
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django_ratelimit.decorators import ratelimit
+from django.shortcuts import render
+
+
+
+def home(request):
+    return render(request, "index.html")
 
 
 # This gives your frontend the secret token
