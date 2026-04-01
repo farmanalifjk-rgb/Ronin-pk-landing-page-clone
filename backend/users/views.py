@@ -15,6 +15,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django_ratelimit.decorators import ratelimit
 from django.shortcuts import render
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 
@@ -23,6 +24,7 @@ def home(request):
 
 
 # This gives your frontend the secret token
+@ensure_csrf_cookie
 def get_csrf_token(request):
     token = get_token(request)
     return JsonResponse({'csrfToken': token})

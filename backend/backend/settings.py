@@ -75,7 +75,6 @@ SITE_ID = 1
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_REDIRECT_URL = 'profile'
 LOGIN_URL = 'login'
 
 MIDDLEWARE = [
@@ -237,6 +236,12 @@ AXES_LOCKOUT_PARAMETERS = ["ip_address"]
 
 # 4. (Optional) Reset the failed attempts to 0 if they successfully log in
 AXES_RESET_ON_SUCCESS = True
+
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 
 # CELERY SETTINGS
