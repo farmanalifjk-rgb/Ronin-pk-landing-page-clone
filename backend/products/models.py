@@ -5,9 +5,9 @@ class NewArrivalProducts (models.Model):
     category = models.CharField()
     title = models.CharField()
     description = models.TextField()
-    image_url = models.FileField(upload_to ='NewArrivalsProductsImages',null=True,default=None)
-    imgVariant1 = models.FileField(upload_to ='NewArrivalsProductsImages',null=True,default=None)
-    imgVariant2 = models.FileField(upload_to ='NewArrivalsProductsImages',null=True,default=None)
+    image_url = models.FileField(upload_to ='images/',null=True,default=None)
+    imgVariant1 = models.FileField(upload_to ='images/',null=True,default=None)
+    imgVariant2 = models.FileField(upload_to ='images/',null=True,default=None)
     oldPrice = models.CharField(blank=True, null=True )
     newPrice = models.CharField()
 

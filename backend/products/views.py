@@ -4,8 +4,19 @@ from products.models import NewArrivalProducts, Videos, Articles
 
 
 def getNewArrivalProducts(request):
-    data = list(NewArrivalProducts.objects.values())
-    return JsonResponse(data , safe=False)
+    data = []
+    for n in NewArrivalProducts.objects.all():
+        data.append({
+            "category" : n.category,
+            "title" : n.title,
+            "description" : n.description,
+            "image_url" : n.image_url.url,
+            "imgVariant1" : n.imgVariant1.url,
+            "imgVariant2" : n.imgVariant2.url,
+            "oldPrice" : n.oldPrice,
+            "newPrice" : n.newPrice,
+        })
+    return JsonResponse(data, safe=False)
 
 
 def getVideos(request):
