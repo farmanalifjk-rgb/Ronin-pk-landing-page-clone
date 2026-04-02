@@ -46,6 +46,6 @@ class Videos(models.Model):
 
 
 class Articles(models.Model):
-    TrendingImage = models.FileField()
+    TrendingImage = models.FileField(upload_to='PromotionSection/images/')
     TrendingTitle = models.TextField()
     TrendingDescription = models.TextField()
