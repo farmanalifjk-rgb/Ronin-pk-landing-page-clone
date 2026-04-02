@@ -12,13 +12,16 @@ click==8.3.1
 click-didyoumean==0.3.1
 click-plugins==1.1.1.2
 click-repl==0.3.0
+cloudinary==1.44.1
 colorama==0.4.6
 cookiecutter==2.7.1
 cryptography==46.0.5
+dj-database-url==3.1.2
 Django==6.0.3
 django-allauth==65.15.0
 django-autoslug==1.9.9
 django-axes==8.3.1
+django-cloudinary-storage==0.3.0
 django-cors-headers==4.9.0
 django-ratelimit==4.1.0
 django-tailwind==4.4.2
@@ -26,6 +29,7 @@ django-tinymce==5.0.0
 django-widget-tweaks==1.5.1
 et_xmlfile==2.0.0
 fs==2.4.16
+git-filter-repo==2.47.0
 gunicorn==25.3.0
 idna==3.11
 inflection==0.5.1
@@ -39,6 +43,8 @@ openpyxl==3.1.5
 packaging==26.0
 pillow==12.1.1
 prompt_toolkit==3.0.52
+psycopg==3.3.3
+psycopg-binary==3.3.3
 pycparser==3.0
 Pygments==2.19.2
 PyJWT==2.12.1
@@ -62,4 +68,3 @@ urllib3==2.6.3
 vine==5.1.0
 wcwidth==0.6.0
 whitenoise==6.12.0
- 

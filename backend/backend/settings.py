@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import cloudinary
+
 
 # This line loads the passwords from your .env file!
 load_dotenv()
@@ -191,6 +193,10 @@ STORAGES = {
 MEDIA_ROOT = BASE_DIR / "media"
 
 MEDIA_URL = "/media/"
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

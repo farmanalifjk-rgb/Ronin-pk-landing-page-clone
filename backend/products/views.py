@@ -9,13 +9,26 @@ def getNewArrivalProducts(request):
 
 
 def getVideos(request):
-    data = list(Videos.objects.values())
-    return JsonResponse(data , safe=False)
+    data = []
+    for v in Videos.objects.all():
+        data.append({
+            "Videolink": v.Videolink,
+            "ImageLink": v.ImageLink,
+            "Name": v.Name,
+            "profession": v.profession,
+        })
+    return JsonResponse(data, safe=False)
 
 
 def getArticles(request):
-    data = list(Articles.objects.values())
-    return JsonResponse(data , safe=False)
+    data = []
+    for v in Videos.objects.all():
+        data.append({
+            "TrendingImage": v.TrendingImage,
+            "TrendingTitle": v.TrendingTitle,
+            "TrendingDescription": v.TrendingDescription,
+        })
+    return JsonResponse(data, safe=False)
 
 
 
