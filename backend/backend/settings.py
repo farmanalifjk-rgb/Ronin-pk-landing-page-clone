@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "ronin-pk-landing-page-clone-production.up.railway.app"
@@ -78,8 +78,8 @@ LOGIN_URL = 'login'
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -252,10 +252,15 @@ SESSION_COOKIE_SECURE = True
 
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT is disabled — Railway's edge layer handles SSL termination
+# and re-enabling this would cause infinite redirect loops behind the proxy.
+SECURE_SSL_REDIRECT = False
 
 
 # CELERY SETTINGS
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# Use the CELERY_BROKER_URL env var when Redis is available (e.g. a Railway Redis
+# service).  Falls back to the in-memory transport so the app starts cleanly in
+# environments where Redis has not been provisioned yet.
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'memory://')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
