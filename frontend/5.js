@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const div = document.createElement("div");
     div.className = "shrink-0 md:w-96 xs:w-60 rounded-2xl bg-white shadow-[6px_4px_20px_rgba(0,0,0,0.25)] overflow-hidden";
     div.innerHTML = `
-      <img class="w-full object-cover" src="https://ronin-pk-landing-page-clone-production.up.railway.app/media/${t.TrendingImage}" alt="${t.TrendingTitle}" loading="lazy">
+      <img class="w-full object-cover" src="${t.TrendingImage}" alt="${t.TrendingTitle}" loading="lazy">
       <div class="p-4 flex flex-col gap-2">
         <p class="font-bold line-clamp-1">${t.TrendingTitle}</p>
         <p class="text-sm text-gray-600 line-clamp-3">${t.TrendingDescription}</p>
