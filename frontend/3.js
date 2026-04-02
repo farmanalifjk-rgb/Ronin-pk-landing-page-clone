@@ -11,9 +11,9 @@ const container = document.querySelectorAll(".cards");
 const productsHTML = products.map(p =>`
   <div class="product-card bg-white rounded-2xl py-2 flex flex-col w-[75vw] gap-2 shadow-black/40 shadow transition-transform duration-300 ease-in-out hover:-translate-y-2 group xs:px-2 xs:gap-2 md:w-[42vw] lg:w-[30vw] lg:py-2 xl:w-[21vw] lg:gap-3">
       <span class="text-sm font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">${p.category}</span>
-      <img class="main-product-img transition-transform duration-300 ease-in-out group-hover:scale-110 cursor-pointer xs:w-11/12 sm:w-72 xs:flex xs:self-center xs:h-60 lg:w-64" src="https://ronin-pk-landing-page-clone-production.up.railway.app/media/${p.image_url}" alt="${p.title}">
+      <img class="main-product-img transition-transform duration-300 ease-in-out group-hover:scale-110 cursor-pointer xs:w-11/12 sm:w-72 xs:flex xs:self-center xs:h-60 lg:w-64" src="https://ronin-pk-landing-page-clone-production.up.railway.app/media/${p.image_url}" alt="">
       <span class="font-bold text-xl text-left xs:text-lg ">${p.title}</span>
-      <span class="font-normal text-xs text-left">${p.desc}</span>
+      <span class="font-normal text-xs text-left">${p.description}</span>
       <span class="h-0 border-2 border-gray-500"></span>
       <div class="h-7 flex justify-between">
           <img class="w-20 -my-6" src="/img/rating.png" alt="">
