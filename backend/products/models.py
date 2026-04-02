@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class NewArrivalProducts (models.Model):
     category = models.CharField()
@@ -39,13 +40,13 @@ class CategoryProducts(models.Model):
 
 
 class Videos(models.Model):
-    Videolink = models.FileField(upload_to='PromotionSection/videos/')
-    ImageLink = models.FileField(upload_to='PromotionSection/images/')
+    Videolink = CloudinaryField('video', resource_type='video')
+    ImageLink = models.FileField(upload_to='images/')
     Name = models.CharField(max_length=50)
     profession = models.CharField(max_length=50)
 
 
 class Articles(models.Model):
-    TrendingImage = models.FileField(upload_to='PromotionSection/images/')
+    TrendingImage = models.FileField(upload_to='images/')
     TrendingTitle = models.TextField()
     TrendingDescription = models.TextField()
