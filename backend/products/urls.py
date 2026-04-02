@@ -4,6 +4,6 @@ from .views import getNewArrivalProducts, getVideos, getArticles
 
 urlpatterns = [
     path('new_arrival_products/',getNewArrivalProducts),
-    path('Videos/',getVideos),
-    path('Articles/',getArticles),
+    path('videos/',getVideos),
+    path('articles/',getArticles),
 ]

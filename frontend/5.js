@@ -5,8 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const TrendingNews = document.getElementById("TrendingNews");
 
- fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/products/Articles/")
-  .then(response => response.json())
+ fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/products/articles/")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("API error: " + response.status);
+    }
+    return response.json();
+    })
   .then(Trendingarray => { 
   // Preload images
   Trendingarray.forEach(t => new Image().src = t.TrendingImage);
