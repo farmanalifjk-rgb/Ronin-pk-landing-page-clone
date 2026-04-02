@@ -12,8 +12,8 @@ def getVideos(request):
     data = []
     for v in Videos.objects.all():
         data.append({
-            "Videolink": v.Videolink,
-            "ImageLink": v.ImageLink,
+            "Videolink": v.Videolink.url,
+            "ImageLink": v.ImageLink.url,
             "Name": v.Name,
             "profession": v.profession,
         })
@@ -22,13 +22,10 @@ def getVideos(request):
 
 def getArticles(request):
     data = []
-    for v in Videos.objects.all():
+    for a in Articles.objects.all():
         data.append({
-            "TrendingImage": v.TrendingImage,
-            "TrendingTitle": v.TrendingTitle,
-            "TrendingDescription": v.TrendingDescription,
+            "TrendingImage": a.TrendingImage.url,
+            "TrendingTitle": a.TrendingTitle,
+            "TrendingDescription": a.TrendingDescription,
         })
     return JsonResponse(data, safe=False)
-
-
-
