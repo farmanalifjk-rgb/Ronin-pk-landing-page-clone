@@ -6,7 +6,6 @@ fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/product
   .then(products => {
 
 // 2. RENDER THE HTML
-const container = document.querySelectorAll(".cards");
 // 1. Generate the HTML string ONCE
 const productsHTML = products.map(p =>`
   <div class="product-card bg-white rounded-2xl py-2 flex flex-col w-[75vw] gap-2 shadow-black/40 shadow transition-transform duration-300 ease-in-out hover:-translate-y-2 group xs:px-2 xs:gap-2 md:w-[42vw] lg:w-[30vw] lg:py-2 xl:w-[21vw] lg:gap-3">

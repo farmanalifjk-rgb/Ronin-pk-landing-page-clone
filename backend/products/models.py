@@ -35,5 +35,17 @@ class CategoryProducts(models.Model):
     Category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name        
+        return self.name    
 
+
+class Videos(models.Model):
+    Videolink = models.FileField(upload_to='PromotionSection/videos/')
+    ImageLink = models.FileField(upload_to='PromotionSection/images/')
+    Name = models.CharField(max_length=50)
+    profession = models.CharField(max_length=50)
+
+
+class Articles(models.Model):
+    TrendingImage = models.FileField()
+    TrendingTitle = models.TextField()
+    TrendingDescription = models.TextField()
