@@ -15,7 +15,6 @@ click-repl==0.3.0
 colorama==0.4.6
 cookiecutter==2.7.1
 cryptography==46.0.5
-dj-database-url==3.1.2
 Django==6.0.3
 django-allauth==65.15.0
 django-autoslug==1.9.9
@@ -40,8 +39,6 @@ openpyxl==3.1.5
 packaging==26.0
 pillow==12.1.1
 prompt_toolkit==3.0.52
-psycopg==3.3.3
-psycopg-binary==3.3.3
 pycparser==3.0
 Pygments==2.19.2
 PyJWT==2.12.1
