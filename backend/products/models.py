@@ -31,7 +31,7 @@ class CategoryProducts(models.Model):
     left1 = models.CharField(max_length=100, null=True, blank=True)
     left2  = models.CharField(max_length=100, null=True, blank=True)
     top2  = models.CharField(max_length=100, null=True, blank=True)
-    image = models.FileField(upload_to='NavbarProductsImages',null=True,default=None)
+    image = models.FileField(upload_to='images/',null=True,default=None)
     name = models.CharField(max_length=100)
     Category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
