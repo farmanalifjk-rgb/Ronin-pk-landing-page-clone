@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from products.models import NewArrivalProducts, Videos, Articles, CategoryProducts
+from products.models import NewArrivalProducts, Videos, Articles, CategoryProducts, BannerImage
 
 
 def getNewArrivalProducts(request):
@@ -72,3 +72,21 @@ def getNavbarData(request):
         })
         
     return JsonResponse(data, safe=False)
+
+
+def get_images(request):
+    desktop = []
+    mobile = []
+
+    images = BannerImage.objects.all()
+
+    for img in images:
+        if img.image_type == 'desktop':
+            desktop.append(img.image.url)
+        elif img.image_type == 'mobile':
+            mobile.append(img.image.url)
+
+    return JsonResponse({
+        "desktopImages": desktop,
+        "mobileImages": mobile
+    })

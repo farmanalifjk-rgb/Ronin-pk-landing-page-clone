@@ -50,3 +50,16 @@ class Articles(models.Model):
     TrendingImage = models.FileField(upload_to='images/')
     TrendingTitle = models.TextField()
     TrendingDescription = models.TextField()
+
+
+class BannerImage(models.Model):
+    IMAGE_TYPE_CHOICES = [
+        ('desktop', 'Desktop'),
+        ('mobile', 'Mobile'),
+    ]
+
+    image = CloudinaryField('image')
+    image_type = models.CharField(max_length=10, choices=IMAGE_TYPE_CHOICES)
+
+    def __str__(self):
+        return f"{self.image_type} image"

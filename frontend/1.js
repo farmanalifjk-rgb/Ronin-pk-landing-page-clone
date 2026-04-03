@@ -1,22 +1,15 @@
 
 // ======================================================= HERO BACKGROUND IMAGE SECTION ================================================================>
 
-const desktopImages = [
-  "/img/main img.webp",
-  "/img/main img2.webp",
-  "/img/main img3.avif",
-  "/img/main img5.webp",
-  "/img/extra2.jpg",
-  "/img/main img6 (1).webp"
-];
+fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/products/bannerImages/")
+  .then(res => res.json())
+  .then(data => {
+    const desktopImages = data.desktopImages;
+    const mobileImages = data.mobileImages;
 
-const mobileImages = [
-  "/img/smallerImage (1).webp",
-  "/img/smallerImage (2).webp",
-  "/img/smallerImage (3).webp",
-  "/img/smallerImage (4).webp",
-  "/img/smallerImage.webp"
-];
+    console.log(desktopImages, mobileImages);
+  });
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
