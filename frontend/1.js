@@ -1,6 +1,9 @@
 
 // ======================================================= HERO BACKGROUND IMAGE SECTION ================================================================>
 
+let desktopImages = [];
+let mobileImages = [];
+  
 fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/products/bannerImages/")
   .then(res => res.json())
   .then(data => {
