@@ -44,22 +44,19 @@ def register(request):
             try:
                 send_mail(
                     subject="Welcome to Ronin!",
-                    # 1. The plain text fallback (for old email clients or smart watches)
-                    message=f"Hi {user.username},\n\nWelcome to Ronin! Your account has been created successfully. We are excited to have you on board.",
-
-                    from_email=settings.EMAIL_HOST_USER,
+                    message=f"Hi {user.username},\n\nWelcome to Ronin!",
+                    from_email=settings.DEFAULT_FROM_EMAIL,
                     recipient_list=[user.email],
-                    fail_silently=False, 
-
-                    # 2. The new HTML message! (This is what most users will see)
+                    fail_silently=False,
                     html_message=f"""
                     <html>
-                        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-                            <h2 style="color: #2c3e50;">Hi {user.username},</h2>
-                            <p>Welcome to <strong>Ronin!</strong> Your account has been created successfully.</p>
-                            <p>We are excited to have you on board.</p>
-                            <br>
-                            """)
+                        <body>
+                            <h2>Hi {user.username},</h2>
+                            <p>Welcome to Ronin!</p>
+                        </body>
+                    </html>
+                    """
+                )
             
             except Exception as e:
             # You can log the error, but still let the user register successfully
@@ -265,23 +262,10 @@ def custom_logout(request):
 
 
 # users/models.py
-from django.dispatch import receiver
-from allauth.account.signals import user_signed_up
 from django.core.mail import send_mail
+from .tasks import send_welcome_email_task
 
-# This "listens" for anytime someone signs up via django-allauth (Google/Facebook)
 @receiver(user_signed_up)
 def send_google_welcome_email(request, user, **kwargs):
-    # Check if we successfully got their email from Google
     if user.email:
-        try:
-            send_mail(
-                subject="Welcome to Ronin!",
-                message=f"Hi {user.username},\n\nWelcome to Ronin! You successfully created an account using Google. We are excited to have you!",
-                from_email="your_email@gmail.com", # Change to your email
-                recipient_list=[user.email],
-                fail_silently=True, # So the app doesn't crash if the email fails to send
-            )
-            print(f"Welcome email sent to {user.email}")
-        except Exception as e:
-            print("Google Welcome Email failed to send:", str(e))
+        send_welcome_email_task.delay(user.username, user.email)
