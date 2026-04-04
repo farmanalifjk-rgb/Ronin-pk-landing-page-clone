@@ -155,16 +155,13 @@ MEDIA_URL = "/media/"
 # EMAIL (CHANGED): Use Resend API (works on Railway)
 # =========================================================
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD = os.getenv("SENDGRID_API_KEY")
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+
+ANYMAIL = {
+    "SENDGRID_API_KEY": os.getenv("SENDGRID_API_KEY"),
+}
 
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
-
-DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "wick25315@gmail.com")
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # ---------------------------------------------------------
