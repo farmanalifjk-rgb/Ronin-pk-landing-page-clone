@@ -46,14 +46,9 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.facebook",
-    "anymail"
-
-
+    "anymail",
     "widget_tweaks",
     "axes",
-
-    # NEW: AnyMail (email via API providers like Resend)
-    "anymail",
 ]
 
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
