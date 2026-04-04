@@ -279,7 +279,7 @@ SECURE_SSL_REDIRECT = False
 # CELERY SETTINGS
 
 # Redis URL from Railway environment variable
-REDIS_URL = os.getenv('DATABASE_URL', 'redis://localhost:6379/0')
+REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 
 # Celery Configuration
 CELERY_BROKER_URL = REDIS_URL
