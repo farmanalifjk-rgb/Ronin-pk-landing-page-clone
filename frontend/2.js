@@ -3,19 +3,18 @@
 // ==========================================
 // 1. MAP CATEGORIES TO HTML CONTAINERS
 // ==========================================
-// This tells the script which container ID belongs to which category from your Django backend
 const categoryContainerMap = {
   "Earbuds": "itemsPerOption1",
   "Handsfree": "itemsPerOption2",
   "Neckbands": "itemsPerOption3",
   "Speakers": "itemsPerOption4",
   "Headphones": "itemsPerOption5",
-  "Men": "itemsPerOption6",                 // Smart Watches -> Men
-  "Women": "itemsPerOption7",               // Smart Watches -> Women
-  "Cables": "itemsPerOption8",              // Charging Devices -> Cables
+  "Men": "itemsPerOption6",                 
+  "Women": "itemsPerOption7",               
+  "Cables": "itemsPerOption8",              
   "Power Bank": "itemsPerOption9",
   "Mobile Chargers": "itemsPerOption10",
-  "Accessory Cables": "itemsPerOption11",   // Accessories -> Cables
+  "Accessory Cables": "itemsPerOption11",   
   "Smart Watch Charging Cables": "itemsPerOption12",
   "Live Tracker": "itemsPerOption13",
   "Smart Watch Straps": "itemsPerOption14"
@@ -29,8 +28,6 @@ function renderCards(dataArray, containerId) {
   if (!container) return;
 
   container.innerHTML = dataArray.map(item => {
-    // We use item.img OR item.image_url, and item.name OR item.title 
-    // to match whatever your Django API returns
     const imageUrl = item.img || item.image_url;
     const itemName = item.name || item.title;
 
@@ -50,21 +47,17 @@ function renderCards(dataArray, containerId) {
 // ==========================================
 async function fetchAndOrganizeNavbarData() {
   try {
-    // Fetch data from your Django URL
     const response = await fetch('https://ronin-pk-landing-page-clone-production.up.railway.app/api/products/navbardata/'); // Replace 'url' with your actual endpoint (e.g., '/api/navbar-items/')
     const data = await response.json();
 
-    // Organize data by category if the API returns a flat list
     let groupedData = {};
     if (Array.isArray(data)) {
       data.forEach(item => {
-        // Assume API returns category name as 'category' or 'category_name'
         const cat = item.category || item.category_name; 
         if (!groupedData[cat]) groupedData[cat] = [];
         groupedData[cat].push(item);
       });
     } else {
-      // If API already returns grouped data like: { "Earbuds": [...], "Handsfree": [...] }
       groupedData = data;
     }
 
@@ -80,7 +73,6 @@ async function fetchAndOrganizeNavbarData() {
   }
 }
 
-// Execute the fetch function on page load
 fetchAndOrganizeNavbarData();
 
 
@@ -134,7 +126,6 @@ function setupMenuTabs(tabPairs) {
     trigger.addEventListener("mouseenter", () => {
       clearTimeout(activeTimeout);
 
-      // Hide all other sub-menus in this group instantly
       tabPairs.forEach(pair => {
         if (pair.targetId !== targetId) {
           const otherTarget = document.getElementById(pair.targetId);
@@ -145,7 +136,6 @@ function setupMenuTabs(tabPairs) {
         }
       });
 
-      // Show the targeted sub-menu with a slight delay
       activeTimeout = setTimeout(() => {
         target.classList.remove("pointer-events-none", "max-h-0", "opacity-0");
         target.classList.add("opacity-100", "h-full");

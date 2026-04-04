@@ -7,12 +7,10 @@ let mobileImages = [];
 fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/products/bannerImages/")
   .then(res => res.json())
   .then(data => {
-    desktopImages = data.desktopImages;   // ✅ FIX: removed const
+    desktopImages = data.desktopImages; 
     mobileImages = data.mobileImages;
 
-    console.log(desktopImages, mobileImages);
-
-    initSlider(); // ✅ start only after data is ready
+    initSlider(); 
   });
 
 function initSlider() {
