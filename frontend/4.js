@@ -32,9 +32,9 @@ fetch("https://ronin-pk-landing-page-clone-production.up.railway.app/api/product
             </p>
 
             <div class="flex pt-1 justify-between xs:w-14">
-              <img class="w-4" src="img/heart.png">
-              <img class="w-4" src="img/chat.png">
-              <img class="w-4" src="img/paper-plane.png">
+              <img class="w-4" src="/images/heart.png">
+              <img class="w-4" src="/images/chat.png">
+              <img class="w-4" src="/images/paper-plane.png">
             </div>
           </div>
         </div>
