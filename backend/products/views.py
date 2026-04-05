@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from products.models import NewArrivalProducts, Videos, Articles, CategoryProducts, BannerImage
+from products.models import NewArrivalProducts, Videos, Articles, BannerImage
 
 
 def getNewArrivalProducts(request):
@@ -39,38 +39,6 @@ def getArticles(request):
             "TrendingTitle": a.TrendingTitle,
             "TrendingDescription": a.TrendingDescription,
         })
-    return JsonResponse(data, safe=False)
-
-
-def getNavbarData(request):
-    # .select_related('Category') optimizes the database query by fetching 
-    # the product and its related category at the same time.
-    products = CategoryProducts.objects.select_related('Category').all()
-    
-    data = []
-    for product in products:
-        # Safely get the image URL (prevents errors if an image is missing)
-        img_url = product.image.url if product.image else ""
-
-        data.append({
-            # Get the name of the Category it belongs to (e.g., "Earbuds", "Handsfree")
-            "category": product.Category.name if product.Category else "",
-            
-            # Product details
-            "name": product.name,
-            "img": img_url,
-            
-            # Tailwind CSS classes straight from your database
-            "peding1": product.peding1 or "",
-            "width1": product.width1 or "",
-            "height1": product.height1 or "",
-            "width2": product.width2 or "",
-            "top1": product.top1 or "",
-            "left1": product.left1 or "",
-            "left2": product.left2 or "",
-            "top2": product.top2 or "",
-        })
-        
     return JsonResponse(data, safe=False)
 
 
