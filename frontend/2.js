@@ -41,30 +41,39 @@ function renderCards(dataArray, containerId) {
     const imageUrl = item.img || item.image_url || item.image || '/static/img/placeholder.webp';
     const itemName = item.name || item.title || item.product_name || 'Product';
     
-    // Use provided values or defaults
-    const peding = item.peding1 || 'pt-16';
-    const width = item.width1 || 'w-36';
-    const height = item.height1 || 'h-24';
-    const width2 = item.width2 || 'w-24';
-    const top = item.top1 || '-top-14';
-    const left = item.left1 || 'left-7';
-    const left2 = item.left2 || 'left-7';
-    const top2 = item.top2 || 'top-12';
+    // Use provided values or defaults - FIXED FOR PROPER CARD DISPLAY
+    const padding = item.peding1 || 'pt-16';      // Top padding for card
+    const cardWidth = item.width1 || 'w-40';      // Card container width
+    const cardHeight = item.height1 || 'h-48';    // Card container height
+    const imgWidth = item.width2 || 'w-32';       // Image width
+    const imgTop = item.top1 || '-top-16';        // Image top position
+    const imgLeft = item.left1 || 'left-4';       // Image left position
+    const textLeft = item.left2 || 'left-0';      // Text left position
+    const textTop = item.top2 || 'bottom-6';      // Text bottom position
 
     const cardHTML = `
-      <div class="h-fit ${peding} group cursor-pointer transition-all duration-300 hover:scale-105">
-        <div class="relative rounded-xl bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg hover:shadow-xl hover:bg-white/30 transition-all duration-300 ${width} ${height}">
-          <img 
-            class="absolute ${width2} ${top} ${left} transition-all duration-300 ease-in-out group-hover:-translate-y-2 group-hover:scale-110" 
-            src="${imageUrl}" 
-            alt="${itemName}"
-            loading="lazy"
-            onload="console.log('✅ Image loaded: ${itemName}')"
-            onerror="this.src='/static/img/placeholder.webp'; console.log('❌ Image failed: ${itemName}')"
-          >
-          <p class="absolute ${left2} ${top2} font-inter font-semibold text-xs text-center text-gray-800 group-hover:text-gray-900 transition-colors duration-300 px-2">
-            ${itemName}
-          </p>
+      <div class="h-fit ${padding} group cursor-pointer transition-all duration-300 hover:scale-105">
+        <!-- CARD CONTAINER -->
+        <div class="relative rounded-3xl bg-white/80 backdrop-blur-sm border border-white/40 shadow-xl hover:shadow-2xl hover:bg-white/90 transition-all duration-300 flex flex-col items-center justify-between ${cardWidth} ${cardHeight} overflow-hidden">
+          
+          <!-- IMAGE SECTION (Top) -->
+          <div class="relative w-full h-2/3 flex items-center justify-center">
+            <img 
+              class="absolute ${imgWidth} ${imgTop} ${imgLeft} object-contain transition-all duration-300 ease-in-out group-hover:-translate-y-3 group-hover:scale-110" 
+              src="${imageUrl}" 
+              alt="${itemName}"
+              loading="lazy"
+              onload="console.log('✅ Image loaded: ${itemName}')"
+              onerror="this.src='/static/img/placeholder.webp'; console.log('❌ Image failed: ${itemName}')"
+            >
+          </div>
+
+          <!-- TEXT SECTION (Bottom) -->
+          <div class="w-full h-1/3 flex items-center justify-center px-3 pb-4">
+            <p class="font-inter font-semibold text-xs text-center text-gray-800 group-hover:text-gray-900 transition-colors duration-300 line-clamp-2">
+              ${itemName}
+            </p>
+          </div>
         </div>
       </div>
     `;
@@ -100,7 +109,6 @@ async function fetchAndOrganizeNavbarData() {
       console.log(`📊 Processing ${rawData.length} items from array...`);
       
       rawData.forEach(item => {
-        // Try different field names for category - IMPORTANT: Match your API response
         const category = item.category 
           || item.category_name 
           || item.categoryName
