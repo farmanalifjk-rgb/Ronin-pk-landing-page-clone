@@ -1,6 +1,6 @@
 <div align="center">
   <!-- Replace the src link below with your actual screenshot URL -->
-  <img src="https://via.placeholder.com/1000x500.png?text=Ronin.pk+Landing+Page+Clone+Screenshot" alt="Ronin.pk Clone Landing Page" width="100%" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+
 
   <br />
   <br />
@@ -10,6 +10,7 @@
   <p>
     A full-stack, meticulously crafted clone of the Ronin.pk landing page featuring an engaging frontend and a highly secure, feature-rich backend API.
   </p>
+    <img src="frontend/img/Screenshot 2026-04-07 234142.png?text=Ronin.pk+Landing+Page+Clone+Screenshot" alt="Ronin.pk Clone Landing Page" width="100%" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
 
   <!-- Badges -->
   <p>
@@ -21,9 +22,9 @@
 
   <h3>
     🌐 Live Demos: 
-    <a href="https://your-project-link.vercel.app">Frontend (Vercel)</a>
+    <a href="https://ronin-pk-landing-page-clone.vercel.app/index.html">Frontend (Vercel)</a>
     <span> | </span>
-    <a href="https://your-backend-link.up.railway.app">Backend API (Railway)</a>
+    <a href="https://railway.com/project/7a462741-5908-4342-9a83-c1829af795dc?">Backend API (Railway)</a>
   </h3>
 </div>
 
@@ -139,7 +140,7 @@ Open `http://localhost:5500` in your browser.
 
 Built with passion to demonstrate the seamless integration of a beautiful frontend with a complex, secure, and asynchronous backend architecture.
 
-- **Developer:** [Your Name / GitHub Profile](https://github.com/farmanalifjk-rgb)
+- **Developer:** [ Farman ALi / GitHub Profile](https://github.com/farmanalifjk-rgb)
 - **Original Inspiration:** [Ronin.pk](https://ronin.pk)
 
 - ## 📜 License
