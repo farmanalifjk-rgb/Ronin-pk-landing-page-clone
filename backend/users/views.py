@@ -59,7 +59,7 @@ def register(request):
                 )
             
             except Exception as e:
-            # You can log the error, but still let the user register successfully
+                # You can log the error, but still let the user register successfully
                 print("Email failed to send:", str(e))
 
         # 4. Finally, return the success message to the frontend
